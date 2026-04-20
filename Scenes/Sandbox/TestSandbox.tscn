@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dj5p8gt67cuo4"]
+
+[ext_resource type="Script" uid="uid://jquh0ifbbnrq" path="res://Scenes/Sandbox/test_sandbox.gd" id="1_qlqsi"]
+
+[node name="TestSandbox" type="Node2D" unique_id=1117768174]
+script = ExtResource("1_qlqsi")
+
+[node name="Sandbox" type="Node2D" parent="." unique_id=1233236780]

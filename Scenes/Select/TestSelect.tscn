@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://bvh6t0ku50lqb"]
+
+[ext_resource type="Script" uid="uid://dw4jma267es7x" path="res://Scenes/Select/select_button.gd" id="1_vub1w"]
+[ext_resource type="Script" uid="uid://blnd0ticvciq5" path="res://Scenes/Select/test_select.gd" id="2_testsel"]
+
+[node name="TestSelect" type="Node2D" unique_id=2133661208]
+script = ExtResource("2_testsel")
+
+[node name="SelectRule" type="Button" parent="." unique_id=1567296310]
+offset_left = 321.0
+offset_top = 176.0
+offset_right = 494.0
+offset_bottom = 288.0
+text = "Select Ruleset"
+script = ExtResource("1_vub1w")
+global_key = "ruleset"
+
+[node name="FileDialog" type="FileDialog" parent="SelectRule" unique_id=291783285]
+oversampling_override = 1.0
+title = "Open a Directory"
+position = Vector2i(0, 36)
+file_mode = 2
+root_subfolder = "ugc_rulesets"
+
+[node name="SelectDeck" type="Button" parent="." unique_id=339644267]
+offset_left = 663.0
+offset_top = 175.0
+offset_right = 836.0
+offset_bottom = 287.0
+text = "Select Deck"
+script = ExtResource("1_vub1w")
+global_key = "deck"
+
+[node name="FileDialog" type="FileDialog" parent="SelectDeck" unique_id=1159038666]
+title = "Open a Directory"
+position = Vector2i(0, 36)
+file_mode = 2
+
+[node name="Start" type="Button" parent="." unique_id=445123891]
+offset_left = 452.0
+offset_top = 350.0
+offset_right = 605.0
+offset_bottom = 420.0
+text = "Start"
+
+[connection signal="dir_selected" from="SelectRule/FileDialog" to="." method="_on_selection_changed"]
+[connection signal="dir_selected" from="SelectRule/FileDialog" to="SelectRule" method="_on_file_dialog_dir_selected"]
+[connection signal="dir_selected" from="SelectDeck/FileDialog" to="." method="_on_selection_changed"]
+[connection signal="dir_selected" from="SelectDeck/FileDialog" to="SelectDeck" method="_on_file_dialog_dir_selected"]
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
